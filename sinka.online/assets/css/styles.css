@@ -147,6 +147,33 @@ button {
   }
 }
 
+.p-header {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.global-nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2.5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+li a {
+  padding: 20px 0;
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: underline;
+}
+
 .p-mv__content {
   display: grid;
   grid-template-columns: auto 56%;

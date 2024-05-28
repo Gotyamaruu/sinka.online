@@ -1,0 +1,41 @@
+@use "global" as *;
+
+.p-header {
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.global-nav ul {
+  display: flex;
+  gap: myrem(40);
+  justify-content: center;
+}
+
+li a {
+  padding: 20px 0;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// SNSVer
+// .header {
+//   display: grid;
+//   grid-template-columns: 2fr 1fr;
+//   grid-template-areas:
+//     "nav sns";
+// }
+
+// .global-nav {
+//   grid-area: nav;
+// }
+
+// .sns-icons {
+//   grid-area: sns;
+// }

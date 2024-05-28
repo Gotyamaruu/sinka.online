@@ -10,7 +10,7 @@
     </figure>
     <div class="p-mv__content-text">
       <h2 class="p-mv__content-title">ビジネスをSiNkAさせます</h2>
-      <p class="p-mv__content-lead">sinkaはWeb制作を通してビジネスの<br>進化につながるお手伝いをします</p>
+      <p class="p-mv__content-lead">Web制作を通してビジネスの<br>進化につながるお手伝いをします</p>
     </div>
   </div>
 </div>
