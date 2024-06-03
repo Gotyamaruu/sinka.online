@@ -1,0 +1,27 @@
+@use "global" as *;
+
+.p-service {
+  margin-top: myrem(200);
+}
+
+.p-service__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: myrem(20);
+}
+
+.p-service__content-item {
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: center;
+  justify-content: center;
+  gap: myrem(20);
+}
+
+.p-service__content-title {
+  text-align: center;
+}
+
+.p-service__content-lead {
+  margin: 0 myrem(20);
+}
