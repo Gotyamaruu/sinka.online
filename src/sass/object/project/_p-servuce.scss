@@ -11,11 +11,14 @@
 }
 
 .p-service__content-item {
+  padding: 15px 0 30px 0;
   display: grid;
   grid-template-columns: subgrid;
   align-items: center;
   justify-content: center;
   gap: myrem(20);
+  background-color:$white;
+  border-radius: 10%;
 }
 
 .p-service__content-title {
@@ -23,5 +26,19 @@
 }
 
 .p-service__content-lead {
-  margin: 0 myrem(20);
+  margin: 0 myrem(50);
+  text-align: center;
+}
+
+.p-service__content-img {
+  display: flex;
+  // grid-template-columns: subgrid;
+  align-items: center;
+  justify-content: center
+}
+
+.p-service__content-img img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }

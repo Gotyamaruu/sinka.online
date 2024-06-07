@@ -1,5 +1,5 @@
 // ページトップボタン
-var topBtn = $('.js-pagetop');
+var topBtn = $(".js-pagetop");
 topBtn.hide();
 
 // ページトップボタンの表示設定
@@ -15,19 +15,86 @@ $(window).scroll(function () {
 
 // ページトップボタンをクリックしたらスクロールして上に戻る
 topBtn.click(function () {
-  $('body,html').animate({
-    scrollTop: 0
-  }, 300, 'swing');
+  $("body,html").animate(
+    {
+      scrollTop: 0,
+    },
+    300,
+    "swing"
+  );
   return false;
 });
 
 // スムーススクロール (絶対パスのリンク先が現在のページであった場合でも作動。ヘッダーの高さ考慮。)
-$(document).on('click', 'a[href*="#"]', function () {
+$(document).on("click", 'a[href*="#"]', function () {
   let time = 400;
-  let header = $('header').innerHeight();
+  let header = $("header").innerHeight();
   let target = $(this.hash);
   if (!target.length) return;
   let targetY = target.offset().top - header;
-  $('html,body').animate({ scrollTop: targetY }, time, 'swing');
+  $("html,body").animate({ scrollTop: targetY }, time, "swing");
   return false;
+});
+
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 140, density: { enable: true, value_area: 780 } },
+    color: { value: "#ffffff" },
+    shape: {
+      type: "circle",
+      stroke: { width: 0, color: "#000000" },
+      polygon: { nb_sides: 5 },
+      image: { src: "img/github.svg", width: 100, height: 100 },
+    },
+    opacity: {
+      value: 0.5,
+      random: false,
+      anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false },
+    },
+    size: {
+      value: 3,
+      random: true,
+      anim: { enable: false, speed: 40, size_min: 0.1, sync: false },
+    },
+    line_linked: {
+      enable: true,
+      distance: 110.48066982851817,
+      color: "#ffffff",
+      opacity: 1,
+      width: 1.5,
+    },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false,
+      attract: { enable: false, rotateX: 600, rotateY: 1200 },
+    },
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" },
+      resize: true,
+    },
+    modes: {
+      grab: { distance: 400, line_linked: { opacity: 1 } },
+      bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+      repulse: { distance: 200, duration: 0.4 },
+      push: { particles_nb: 4 },
+      remove: { particles_nb: 2 },
+    },
+  },
+  retina_detect: true,
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const contentAnimateElement = document.querySelector('.p-mv__content-animate');
+  if (contentAnimateElement) {
+    contentAnimateElement.classList.add('load-animation');
+  }
 });
