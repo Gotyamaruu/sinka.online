@@ -9,6 +9,9 @@
   <title>sinka - Web制作を通してビジネスの進化につながるお手伝いをします</title>
   <!-- particles.js -->
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/particles.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -16,9 +19,16 @@
   <div id="particles-js"></div>
   <header class="p-header">
     <div class="p-header__logo">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sinka-logo.png" alt="sinkaのロゴです" width="1779" height="491">
+      <a href="<?php echo home_url(); ?>">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sinka-logo.png" alt="sinkaのロゴです" width="1779" height="491">
+      </a>
     </div>
-    <nav class="p-header__global-nav">
+    <button class="p-header__hamburger js-hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="p-header__global-nav js-drawer">
       <ul class="p-header__list">
         <li class="p-header__item"><a href="<?php echo esc_url(home_url('/home')); ?>">Home</a></li>
         <li class="p-header__item"><a href="<?php echo esc_url(home_url('/about')); ?>">About</a></li>
