@@ -1,44 +1,112 @@
 @use "global" as *;
 
 .p-service {
-  margin-top: myrem(200);
+  margin-top: myrem(80);
 }
+
+.js-visible {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.js-visible.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.p-service__title::before {
+  position: absolute;
+  bottom: -30%;
+  left: calc(50% - 35%);
+  transform: translateX(100%);
+  width: 25%;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: "";
+  @include mq('md') {
+    bottom: -30%;
+    left: 37% ;
+  }
+}
+
+.p-service__title::after {
+  position: absolute;
+  top: -30%;
+  right: calc(50% - 35%);
+  transform: translateX(-100%);
+  width: 25%;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+  content: "";
+  @include mq('md') {
+    top: -30%;
+    right: 37%;
+  }
+}
+
+.p-service__title.load-animation::before,
+.p-service__title.load-animation::after {
+  border-color: #262626;
+  width: 25%;
+  height: 50%;
+  transform: translateX(0);
+  transition: .9s transform linear, .9s height linear .9s;
+}
+
+
 
 .p-service__content {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: myrem(20);
+  max-width: 67%;
+  margin: myrem(100) auto 0 auto;
+  @include mq('md') {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 100%;
+    margin: myrem(100) 0 0 0;
+  }
 }
 
 .p-service__content-item {
-  padding: 15px 0 30px 0;
+  padding: 10px 5px 30px 5px;
   display: grid;
   grid-template-columns: subgrid;
   align-items: center;
   justify-content: center;
-  gap: myrem(20);
+  gap: 5px;
   background-color:$white;
   border-radius: 10%;
+  @include mq('md') {
+    gap: myrem(20);
+  }
 }
 
 .p-service__content-title {
   text-align: center;
+  font-size: max(10px, myrem(30));
 }
 
 .p-service__content-lead {
   margin: 0 myrem(50);
   text-align: center;
+  font-size: max(10px, myrem(16));
 }
 
 .p-service__content-img {
   display: flex;
-  // grid-template-columns: subgrid;
   align-items: center;
   justify-content: center
 }
 
 .p-service__content-img img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
   object-fit: contain;
+  @include mq('md') {
+    max-width: myrem(215);
+  }
 }
