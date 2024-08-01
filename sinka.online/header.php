@@ -20,7 +20,7 @@
   <!-- favicon -->
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" sizes="32x32">
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-sinka.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/apple-icon-sinka.png">
+  <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-sinka-180.png">
   <link rel="manifest" href="/manifest.webmanifest">
   <?php wp_head(); ?>
 </head>

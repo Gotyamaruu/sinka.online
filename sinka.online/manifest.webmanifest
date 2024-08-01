@@ -1,0 +1,19 @@
+{
+  "name": "siNkA",
+  "short_name": "siNKA",
+  "icons": [
+    {
+      "src": "/wp-content/themes/sinka.online/assets/images/favicon-sinka-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/wp-content/themes/sinka.online/assets/images/favicon-sinka-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone"
+}
