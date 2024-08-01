@@ -1,0 +1,78 @@
+@use "global" as *;
+
+.c-slide {
+    position: relative;
+    width: 260px;
+    height: auto;
+    aspect-ratio: 260/140;
+}
+
+.c-slide::after {
+    opacity: 1;
+    position: absolute;
+    top: 70%;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(0, 0, 0, .5);
+    color: $white;
+    content: "";
+    @include mq("md") {
+        top: 0;
+        height: 100%;
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+}
+
+@include mq("md") {
+    .c-slide:hover::after {
+        opacity: 1;
+    }
+}
+
+.c-slide__text {
+    opacity: 1;
+    position: absolute;
+    color: $white;
+    z-index: 2;
+    @include mq("md") {
+        opacity: 0;
+        transition: opacity .3s ease;
+    }
+}
+
+@include mq("md") {
+    .c-slide:hover .c-slide__text {
+        opacity: 1;
+    }
+}
+
+.c-slide__link-detail {
+    top: calc(50% + 30%);
+    left: calc(50% + 10%);
+    @include mq("md") {
+        top: calc(50% - 10%);
+        transform: translate(-50%, -50%);
+        left: 50%;
+    }
+}
+
+.c-slide__link-site {
+    top: calc(50% + 30%);
+    right: calc(50% + 10%);
+    @include mq("md") {
+        top: calc(50% + 10%);
+        transform: translate(-50%, -50%);
+        left: 50%;
+        right: inherit;
+    }
+}
+
+.c-slide img {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

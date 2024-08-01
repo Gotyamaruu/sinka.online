@@ -1,0 +1,210 @@
+@use "global" as *;
+
+.p-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    background-color: transparent;
+    transition: backgroud-color .3s;
+    @include mq("md") {
+        justify-content: space-around;
+    }
+}
+
+.p-header.js-scrolled {
+    background-color: rgba(#d1c9c9, .4);
+}
+
+.p-header__logo {
+    width: myrem(180);
+}
+
+.p-header__logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.c-button {
+    display: inline-block;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    text-decoration: none;
+    cursor: pointer;
+    appearance: none;
+}
+
+.p-header__hamburger {
+    position: absolute;
+    top: 25%;
+    right: calc(50% - 45%);
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 0 2rem transparent;
+    outline: none;
+    transition: all .3s ease-in-out;
+    @include mq('md') {
+        display: none;
+    }
+}
+
+.p-header__line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 25px;
+    height: 3px;
+    margin: auto;
+    background-color: #000000;
+    transition: inherit;
+}
+.p-header__line::before, .p-header__line::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    content: "";
+    transition: inherit;
+}
+.p-header__line::before {
+    top: -8px;
+}
+.p-header__line::after {
+    top: 8px;
+}
+
+.p-header__hamburger[aria-expanded="true"] .p-header__line {
+    background-color: transparent;
+}
+
+.p-header__hamburger[aria-expanded="true"] .p-header__line::before, .p-header__hamburger[aria-expanded="true"] .p-header__line::after {
+    top: 0;
+    background-color: #000000;
+}
+
+.p-header__hamburger[aria-expanded="true"] .p-header__line::before {
+    transform: rotate(45deg);
+}
+
+.p-header__hamburger[aria-expanded="true"] .p-header__line::after {
+    transform: rotate(-45deg);
+}
+
+.p-header__global-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: translateY(-1px);
+    width: 100%;
+    height: 100vh;
+    padding-top: myrem(53);
+    background-color: rgba(#d1c9c9, .8);
+    @include mq("md") {
+        display: flex;
+        align-items: center;
+        position: initial;
+        width: auto;
+        height: auto;
+        padding-top: 0;
+        background-color: transparent;
+    }
+}
+
+.p-header__global-nav ul {
+    display: flex;
+    gap: myrem(40);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    list-style: none;
+    margin: 80px auto 0 auto;
+    @include mq("md") {
+        flex-direction: row;
+        margin: 0;
+    }
+}
+
+
+.p-header__item a {
+    position: relative;
+    padding: 20px 0;
+    font-size: max(10px, myrem(20));
+    text-decoration: none;
+
+    &::before {
+        @include mq('md') {
+            position: absolute;
+            bottom: 14px;
+            left: -3px;
+            transform: translateX(100%);
+            width: 100%;
+            height: 0;
+            border-bottom: 1px solid transparent;
+            border-left: 1px solid transparent;
+            content: "";
+        }
+    }
+
+    &::after {
+        @include mq('md') {
+            position: absolute;
+            top: 14px;
+            right: -3px;
+            transform: translateX(-100%);
+            width: 100%;
+            height: 0;
+            border-top: 1px solid transparent;
+            border-right: 1px solid transparent;
+            content: "";
+        }
+    }
+
+    &:hover::before {
+        @include mq('md') {
+        transform: translateX(0);
+        height: 48.5%;
+        border-color: #262626;
+        transition: .3s transform linear, .3s height linear .3s;
+        }
+    }
+
+    &:hover::after {
+        @include mq('md') {
+        transform: translateX(0);
+        height: 48.5%;
+        border-color: #262626;
+        transition: .3s transform linear, .3s height linear .3s;
+        }
+    }
+
+    &:focus-visible::before {
+        @include mq('md') {
+        transform: translateX(0);
+        height: 48.5%;
+        border-color: $black;
+        transition: .3s transform linear, .3s height linear .3s;
+        }
+    }
+
+    &:focus-visible::after {
+        @include mq('md') {
+        transform: translateX(0);
+        height: 48.5%;
+        border-color: $black;
+        transition: .3s transform linear, .3s height linear .3s;
+        }
+    }
+}
+

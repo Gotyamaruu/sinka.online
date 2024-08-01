@@ -1,0 +1,77 @@
+@use "global" as *;
+
+.c-page-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: myrem(85);
+    animation: fade-in_tl ease 1.5s forwards;
+    @include mq("md") {
+        padding-top: myrem(100);
+    };
+}
+
+.c-page-title::before {
+    clip-path: polygon(100% 14%, 100% 51%, 0 66%, 0 26%);
+    position: absolute;
+    top: -35px;
+    z-index: -1;
+    width: 100%;
+    height: 380px;
+    background-color: #ffffff;
+    content: "";
+    @include mq("md") {
+        clip-path: polygon(100% 24%, 100% 56%, 0 77%, 0 44%);
+        top: auto;
+        height: 500px;
+    }
+}
+
+.c-page-title__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: max(40px, myrem(50));
+    text-transform: capitalize;
+}
+
+.c-page-title__text::before {
+    position: absolute;
+    bottom: -20%;
+    left: -15%;
+    transform: translateX(100%);
+    width: 25%;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: "";
+    @include mq("md") {
+        bottom: -10%;
+    }
+}
+
+.c-page-title__text::after {
+    position: absolute;
+    top: -20%;
+    right: -15%;
+    transform: translateX(-100%);
+    width: 25%;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    content: "";
+    @include mq("md") {
+        top: -10%;
+    }
+}
+
+.c-page-title__text.load-animation::before, .c-page-title__text.load-animation::after {
+    transform: translateX(0);
+    width: 130%;
+    height: 50%;
+    border-color: #262626;
+    transition: .9s transform linear, .9s height linear .9s;
+}

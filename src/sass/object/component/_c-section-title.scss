@@ -1,0 +1,47 @@
+@use "global" as *;
+
+.c-section-title {
+    position: relative;
+    font-size: max(20px,myrem(50));
+    text-align: center;
+}
+
+.c-section-title::before {
+    position: absolute;
+    bottom: -30%;
+    left: calc(50% - 35%);
+    transform: translateX(100%);
+    width: 25%;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: "";
+    @include mq("md") {
+        bottom: -30%;
+        left: 37% ;
+    }
+}
+
+.c-section-title::after {
+    position: absolute;
+    top: -30%;
+    right: calc(50% - 35%);
+    transform: translateX(-100%);
+    width: 25%;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-right: 5px solid transparent;
+    content: "";
+    @include mq("md") {
+        top: -30%;
+        right: 37%;
+    }
+}
+
+.c-section-title.load-animation::before, .c-section-title.load-animation::after {
+    transform: translateX(0);
+    width: 25%;
+    height: 50%;
+    border-color: #262626;
+    transition: .9s transform linear, .9s height linear .9s;
+}

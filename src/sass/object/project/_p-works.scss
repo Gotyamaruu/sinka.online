@@ -1,0 +1,20 @@
+@use "global" as *;
+
+.p-works {
+    margin-top: myrem(180);
+}
+
+.p-works__splide {
+    margin-top: myrem(120);
+    padding: 20px;
+    border-radius: 2%;
+    background-color: rgba($white, .3);
+}
+
+.p-works__splide--thumbnail {
+    margin-top: myrem(10);
+}
+
+.p-works__button {
+    margin-top: myrem(50);
+}

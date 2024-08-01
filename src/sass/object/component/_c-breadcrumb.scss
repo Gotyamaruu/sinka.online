@@ -1,0 +1,22 @@
+@use "global" as *;
+
+.c-breadcrumb {
+  width: 100%;
+  height: 150px;
+  @include mq('md') {
+    width: 55%;
+  }
+}
+.c-breadcrumb__content {
+  display: flex;
+  justify-content: center;
+  padding-top: myrem(110);
+}
+
+.c-breadcrumb__list .c-breadcrumb__item:not(:last-child)::after {
+  content: '>';
+  margin: 0 5px;
+}
+.c-breadcrumb__list {
+  display: flex;
+}

@@ -1,0 +1,29 @@
+@use "global" as *;
+
+.c-works-button {
+  display: flex;
+  justify-content: center;
+  min-width: 228px;
+}
+
+.c-works-button a {
+  display: inline-block;
+  background-color: none;
+  color: #000;
+  border: 2px solid #000;
+  border-radius: myrem(20);
+  padding: myrem(25) myrem(80);
+  font-size: myrem(16);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+  }
+}
