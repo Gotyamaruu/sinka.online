@@ -9,7 +9,7 @@
     </div>
   </div>
 </section>
-<section class="p-service js-visible" itemscope itemtype="https://schema.org/Service">
+<section class="p-service js-visible" id="services" itemscope itemtype="https://schema.org/Service">
   <div class="l-inner">
     <h2 class="p-service__title c-section-title">service</h2>
     <div class="p-service__content">
@@ -18,14 +18,14 @@
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-3.webp" alt="HP/LP制作の画像です" width="250" height="150" loading="lazy">
         </div>
         <h3 class="p-service__content-title" itemprop="serviceType">HP&nbsp;LP制作</h3>
-        <p class="p-service__content-lead">お客様のビジネスに合わせたWebサイトを提供します</p>
+        <p class="p-service__content-lead">お客様のビジネスに合わせた<br>Webサイトを提供します</p>
       </div>
       <div class="p-service__content-item" itemprop="provider" itemscope itemtype="https://schema.org/Organization">
         <div class="p-service__content-img">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-2.webp" alt="サービス2の画像です" width="250" height="250" loading="lazy">
         </div>
         <h3 class="p-service__content-title" itemprop="serviceType">WordPress</h3>
-        <p class="p-service__content-lead">既存サイトのWordPress化や独自テーマ制作も対応</p>
+        <p class="p-service__content-lead">既存サイトのWordPress化<br>独自テーマ制作も対応</p>
       </div>
       <div class="p-service__content-item" itemprop="provider" itemscope itemtype="https://schema.org/Organization">
         <div class="p-service__content-img">
@@ -37,7 +37,7 @@
     </div>
   </div>
 </section>
-<section class="p-works js-visible" itemscope itemtype="https://schema.org/CollectionPage">
+<section class="p-works js-visible" id="works" itemscope itemtype="https://schema.org/CollectionPage">
   <div class="l-inner">
     <h2 class="p-works__title c-section-title">works</h2>
     <div class="p-works__splide">
@@ -103,5 +103,24 @@
   </div>
 </section>
 
+<section class="p-contact js-visible" itemscope itemtype="https://schema.org/ContactPage">
+  <div class="l-inner">
+    <h2 class="p-contact__title c-section-title">contact</h2>
+    <div class="p-contact__contants">
+      <div class="p-contact__text">
+        <p>制作のご依頼やその他のご相談がありましたら<br>お気軽にフォームからお問い合わせください。</p>
+      </div>
+      <div class="p-contact__button">
+        <div class="p-contact_icon">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="メールアイコン" width="32" height="32">
+        </div>
+        <a href="<?php echo home_url('/contact'); ?>">ご相談・お問い合わせはこちら</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <?php get_footer(); ?>
 </div>
+
+

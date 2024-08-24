@@ -21,7 +21,9 @@
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon.ico" sizes="32x32">
   <link rel="icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-sinka.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/assets/images/favicon-sinka-180.png">
-  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/manifest.webmanifest">
+  <!-- hcaptcha -->
+  <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <?php wp_head(); ?>
 </head>
 
@@ -45,9 +47,9 @@
     <nav class="p-header__global-nav js-drawer">
       <ul class="p-header__list">
         <li class="p-header__item"><a href="<?php echo esc_url(home_url('/home')); ?>">Home</a></li>
-        <li class="p-header__item"><a href="<?php echo esc_url(home_url('/about')); ?>">About</a></li>
-        <li class="p-header__item"><a href="<?php echo esc_url(home_url('/services')); ?>">Services</a></li>
-        <li class="p-header__item"><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
+        <li class="p-header__item"><a href="#services">Services</a></li>
+        <li class="p-header__item"><a href="#works">Works</a></li>
+        <li class="p-header__item-contact"><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
       </ul>
     </nav>
   </header>
