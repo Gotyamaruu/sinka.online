@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: myrem(20);
-  max-width: 67%;
+  max-width: 90%;
   margin: myrem(100) auto 0 auto;
   @include mq('md') {
     grid-template-columns: 1fr 1fr 1fr;
@@ -32,13 +32,20 @@
 
 .p-service__content-title {
   text-align: center;
-  font-size: max(10px, myrem(30));
+  font-size: max(10px, myrem(28));
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .p-service__content-lead {
-  margin: 0 myrem(50);
+  margin: 0 myrem(20);
   text-align: center;
+  line-height: 1.7;
   font-size: max(10px, myrem(16));
+  @include mq('md') {
+    margin: 0 myrem(40);
+    font-size: max(12px, myrem(16));
+  }
 }
 
 .p-service__content-img {
@@ -48,7 +55,7 @@
 }
 
 .p-service__content-img img {
-  max-width: 70%;
+  max-width: 55%;
   height: auto;
   object-fit: contain;
   @include mq('md') {

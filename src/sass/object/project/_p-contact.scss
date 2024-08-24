@@ -1,0 +1,68 @@
+@use "global" as *;
+
+.p-contact {
+    margin-top: myrem(180);
+    padding-right: 10px;
+    padding-left: 10px;
+    @include mq("md") {
+        padding: 0;
+    }
+}
+
+.p-contact__contants {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-contact__text {
+    margin-top: myrem(100);
+}
+
+.p-contact__text p {
+    font-size: max(10px, myrem(18));
+    font-weight: 500;
+    line-height: 1.7;
+    text-align: center;
+    @include mq("md") {
+        font-size: max(20px, myrem(28));
+    }
+}
+
+.p-contact__button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: myrem(80);
+    padding: 12px 16px;
+    border: 2px solid #333333;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 #9c9494;
+    background-color: rgba(223, 212, 212, .5);
+    text-decoration: none;
+}
+
+.p-contact__button:hover {
+    transform: translateY(4px);
+    box-shadow: none;
+    background-color: #dfd4d4;
+}
+
+.p-contact__button a {
+    font-size: max(10px, myrem(16));
+    font-weight: 600;
+    @include mq("md") {
+        font-size: max(20px, myrem(30));
+    }
+}
+
+.p-contact_icon {
+    width: myrem(32);
+}
+
+.p-contact_icon img {
+    width: 32px;
+    height: 32px;
+}

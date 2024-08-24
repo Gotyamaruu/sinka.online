@@ -1,0 +1,11 @@
+@use "global" as *;
+
+.c-button {
+  display: inline-block;
+  position: relative;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  appearance: none;
+}

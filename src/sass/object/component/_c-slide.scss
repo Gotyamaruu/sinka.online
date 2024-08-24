@@ -2,7 +2,6 @@
 
 .c-slide {
     position: relative;
-    width: 260px;
     height: auto;
     aspect-ratio: 260/140;
 }
@@ -19,9 +18,9 @@
     color: $white;
     content: "";
     @include mq("md") {
+        opacity: 0;
         top: 0;
         height: 100%;
-        opacity: 0;
         transition: opacity .3s ease;
     }
 }
@@ -35,9 +34,10 @@
 .c-slide__text {
     opacity: 1;
     position: absolute;
-    color: $white;
     z-index: 2;
+    color: $white;
     @include mq("md") {
+        font-size: max(16px, myrem(25));
         opacity: 0;
         transition: opacity .3s ease;
     }
@@ -51,22 +51,26 @@
 
 .c-slide__link-detail {
     top: calc(50% + 30%);
-    left: calc(50% + 10%);
+    left: calc(50% + 4%);
+    padding: 5px;
     @include mq("md") {
+        padding: 10px 20px;
         top: calc(50% - 10%);
-        transform: translate(-50%, -50%);
         left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
 .c-slide__link-site {
     top: calc(50% + 30%);
-    right: calc(50% + 10%);
+    right: calc(50% + 12%);
+    padding: 5px;
     @include mq("md") {
+        padding: 10px 20px;
         top: calc(50% + 10%);
-        transform: translate(-50%, -50%);
-        left: 50%;
         right: inherit;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 

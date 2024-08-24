@@ -1,0 +1,23 @@
+@use "global" as *;
+
+.p-policy__wrapper {
+  background-color: rgba(255, 255, 255, .8);
+  padding: 5px 20px 20px 20px;
+  margin-top: 30px;
+}
+
+.p-policy__content {
+  margin-top: 30px;
+}
+
+.p-policy__subtitle {
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+  font-size: max(18px, myrem(24));
+  font-weight: 600;
+}
+
+.p-policy__textarea {
+  margin-top: 15px;
+  font-size: max(14px, myrem(16));
+  line-height: 1.7;
+}

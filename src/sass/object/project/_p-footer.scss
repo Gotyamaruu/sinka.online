@@ -76,9 +76,12 @@
 
 .p-footer__item a {
     position: relative;
-    padding: 20px 0;
-    font-size: max(10px, myrem(20));
+    padding: 20px 10px;
+    font-size: max(10px, myrem(25));
     text-decoration: none;
+    @include mq('md') {
+        font-size: max(20px, myrem(20));
+    }
 
     &::before {
         @include mq('md') {
@@ -151,7 +154,4 @@
     align-items: center;
     padding-top: myrem(30);
     padding-bottom: myrem(30);
-    @include mq('md') {
-        padding-bottom: myrem(50);
-    }
 }

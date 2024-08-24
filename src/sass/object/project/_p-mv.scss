@@ -38,11 +38,19 @@
 }
 
 .p-mv__content-title {
-    font-size: clamp(1.75rem, .891rem + 1.79vw, 3.75rem);
+    font-size: max(10px, myrem(28));
+    line-height: 1.8;
+    font-weight: 600;
+    @include mq('md') {
+    font-size: max(40px, myrem(60));
+    }
 }
 
 .p-mv__content-lead {
-    font-size: max(10px, myrem(16));
+    font-size: max(10px, myrem(14));
+    @include mq('md') {
+    font-size: max(24px, myrem(26));
+    }
 }
 
 .p-mv__content-animate {

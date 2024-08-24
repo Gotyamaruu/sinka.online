@@ -2,8 +2,14 @@
 
 .c-section-title {
     position: relative;
-    font-size: max(20px,myrem(50));
+    font-weight: 600;
+    font-size: max(10px, myrem(28));
+    line-height: 1.6;
     text-align: center;
+    text-transform: capitalize;
+    @include mq("md") {
+        font-size: max(20px,myrem(50));
+    }
 }
 
 .c-section-title::before {

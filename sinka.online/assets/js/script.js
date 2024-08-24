@@ -2,15 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
   const topBtn = document.querySelector(".js-pagetop");
-  topBtn.style.display = "none";
-
-  window.addEventListener("scroll", function () {
+  function handleScroll() {
     if (window.scrollY > 70) {
-      topBtn.style.display = "block";
+      topBtn.classList.add("visible");
     } else {
-      topBtn.style.display = "none";
+      topBtn.classList.remove("visible");
     }
-  });
+  }
+
+  function checkScreenWidth() {
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+
+    if (!isMobile) {
+      window.addEventListener("scroll", handleScroll);
+    } else {
+      window.removeEventListener("scroll", handleScroll);
+    }
+  }
+
+  window.addEventListener("resize", checkScreenWidth);
+  checkScreenWidth();
 
   topBtn.addEventListener("click", function (e) {
     e.preventDefault();
@@ -20,22 +31,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  document.querySelectorAll('a[href*="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
+  document.addEventListener("click", function (e) {
+    const anchor = e.target.closest('a[href*="#"]');
+    if (anchor) {
       e.preventDefault();
-      const targetId = this.getAttribute("href").substring(1);
+      const targetId = anchor.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
       if (!targetElement) return;
       const headerHeight = document.querySelector("header").offsetHeight;
       const targetPosition =
         targetElement.getBoundingClientRect().top +
-        window.pageYOffset -
+        window.scrollY -
         headerHeight;
+      const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches;
       window.scrollTo({
         top: targetPosition,
-        behavior: "smooth",
+        behavior: prefersReducedMotion ? "auto" : "smooth",
       });
-    });
+    }
   });
 
   particlesJS("js-particles", {
@@ -127,43 +142,49 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector("#js-hamburger");
   const drawer = document.querySelector(".js-drawer");
 
-  // hamburger.addEventListener("click", (e) => {
-  //   const isExpanded =
-  //     e.currentTarget.getAttribute("aria-expanded") !== "false";
-  //   e.currentTarget.setAttribute("aria-expanded", !isExpanded);
-
-  //   document.documentElement.classList.toggle("is-drawerActive");
-  // });
-
   hamburger.addEventListener("click", function (e) {
     const isExpanded = e.currentTarget.getAttribute("aria-expanded") !== "true";
     e.currentTarget.setAttribute("aria-expanded", isExpanded);
     if (isExpanded) {
       gsap.set(drawer, { display: "flex" });
-      gsap.fromTo(drawer,
-          { opacity: 0, y: -20 },
-          { opacity: 1, y: 0, duration: 0.3, ease: "power2.inOut" })
+      gsap.fromTo(
+        drawer,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, duration: 0.3, ease: "power2.inOut" }
+      );
     } else {
-      gsap.to(drawer,
-        { opacity: 0, y: -20, duration: 0.3, ease: "power2.inOut", onComplete: () => {
-            gsap.set(drawer, { display: "none" });
-        }
-    });
+      gsap.to(drawer, {
+        opacity: 0,
+        y: -20,
+        duration: 0.3,
+        ease: "power2.inOut",
+        onComplete: () => {
+          gsap.set(drawer, { display: "none" });
+        },
+      });
     }
   });
 
   function resizeHandler() {
     const width = window.innerWidth;
     const drawer = document.querySelector(".js-drawer");
-    if (drawer) {
+    const hamburger = document.querySelector("#js-hamburger");
+    if (drawer && hamburger) {
       if (width >= 768) {
-        gsap.to(drawer, { display: "flex", duration: 0 });
-        drawer.classList.remove("open");
+        drawer.style.display = "flex";
+        drawer.style.opacity = 1;
+        hamburger.setAttribute("aria-expanded", "false");
+        document.documentElement.classList.remove("is-drawerActive");
       } else {
-        gsap.to(drawer, { display: "none", duration: 0 });
+        drawer.style.display = "none";
+        hamburger.setAttribute("aria-expanded", "false");
+        document.documentElement.classList.remove("is-drawerActive");
       }
     }
   }
+
+  window.addEventListener("resize", resizeHandler);
+  resizeHandler();
 
   window.addEventListener("load", resizeHandler);
   window.addEventListener("resize", resizeHandler);
@@ -173,34 +194,53 @@ document.addEventListener("DOMContentLoaded", function () {
     toggleClass: { targets: ".p-header", className: "js-scrolled" },
   });
 
-  var main = new Splide("#main", {
-    type: "loop",
-    autoplay: true,
-    interval: 4000,
-    pagination: false,
-    arrows: false,
-    gap: "20px",
-  }).mount();
+  var splideElement = document.querySelector(".splide");
 
-  var thumbnails = new Splide("#thumbnail", {
-    type: "loop",
-    perPage: 5,
-    focus: "center",
-    autoplay: false,
-    interval: 4000,
-    pagination: false,
-    arrows: false,
-    gap: 5,
-    fixedHeight: 100,
-    isNavigation: true,
-    mediaQuery: "min",
-    breakpoints: {
-      768: {
-        fixedWidth: 110,
-        fixedHeight: 40,
+  if (splideElement) {
+    var main = new Splide("#main", {
+      type: "loop",
+      autoplay: true,
+      interval: 4000,
+      pagination: false,
+      arrows: false,
+      gap: "20px",
+      pauseOnHover: true,
+      mediaQuery: "max",
+      breakpoints: {
+        375: {
+          fixedWidth: 280,
+          fixedHeight: 240,
+        },
+      }
+    }).mount();
+
+    var thumbnails = new Splide("#thumbnail", {
+      type: "loop",
+      perPage: 5,
+      focus: "center",
+      autoplay: false,
+      interval: 4000,
+      pagination: false,
+      arrows: false,
+      gap: 5,
+      fixedHeight: 35,
+      isNavigation: true,
+      mediaQuery: "min",
+      breakpoints: {
+        768: {
+          fixedWidth: 110,
+          fixedHeight: 50,
+        },
+        375: {
+          fixedWidth: 90,
+          fixedHeight: 45,
+        },
+        0: {
+          fixedWidth: 80,
+          fixedHeight: 40,
+        },
       },
-    },
-  }).mount();
-
-  main.sync(thumbnails);
+    }).mount();
+    main.sync(thumbnails);
+  }
 });
