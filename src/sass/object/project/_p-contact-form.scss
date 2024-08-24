@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: myrem(40);
     font-size: max(10px, myrem(30));
     @include mq("md") {
         margin-top: 0;
@@ -30,14 +30,16 @@
 .p-contact-form__group {
     display: grid;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: myrem(30);
     padding-bottom: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     @include mq("md") {
         padding-bottom: 30px;
+
         grid-template-columns: minmax(96px, 130px) minmax(42px, 60px) 1fr;
         row-gap: 0;
     }
+
     grid-template-columns: 128px auto;
     grid-template-rows: auto auto;
     row-gap: 20px;
@@ -47,8 +49,10 @@
     padding-bottom: 0;
     @include mq("md") {
         padding-bottom: 12px;
+
         row-gap: 0;
     }
+
     row-gap: 5px;
 }
 
@@ -58,13 +62,14 @@
 }
 
 .p-contact-form__label {
-    text-align: left;
-    font-size: max(10px, myrem(16));
     font-weight: 600;
+    font-size: max(10px, myrem(16));
+    text-align: left;
     @include mq("md") {
         grid-column: auto;
         grid-row: auto;
     }
+
     grid-column: 1;
     grid-row: 1;
 }
@@ -77,9 +82,9 @@
     padding: 0 5px;
     background-color: black;
     color: white;
+    font-weight: 600;
     font-size: max(10px, myrem(14));
     text-align: center;
-    font-weight: 600;
     @include mq("md") {
         width: auto;
         margin: 0 auto;
@@ -128,7 +133,7 @@
 }
 
 .p-contact-form__agree {
-    margin-bottom: 30px;
+    margin-bottom: myrem(30);
     text-align: center;
 }
 
@@ -148,16 +153,24 @@
 
 
 .p-contact-form__submit-btn {
-    margin-bottom: 30px;
-    padding: 12px 16px;
+    margin-bottom: myrem(30);
     border: 2px solid #333333;
     border-radius: 10px;
     box-shadow: 0 5px 0 #c3bdbd;
     text-decoration: none;
     text-align: center;
+    cursor: pointer;
+    @include mq("md") {
+        &:hover, &:focus {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
 }
 
 .p-contant-form__submit {
+    width: 100%;
+    padding: 12px 16px;
     border: none;
     background-color: transparent;
     color: #333333;

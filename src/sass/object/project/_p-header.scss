@@ -128,13 +128,20 @@
 
 .p-header__item-contact a {
     padding: 10px 10px;
-    font-size: max(10px, myrem(25));
-    text-decoration: none;
     border: 2px solid #333333;
     border-radius: 10px;
     box-shadow: 0 5px 0 #9c9494;
-    @include mq('md') {
+    font-size: max(10px, myrem(25));
+    text-decoration: none;
+    @include mq("md") {
+        display: inline-block;
         font-size: max(20px, myrem(20));
+        transition: opacity .3s ease, transform .3s ease;
+        &:hover, &:focus {
+            transform: scale(1.1);
+            background-color: #555555;
+            color: $white;
+        }
     }
 }
 
@@ -144,7 +151,7 @@
     padding: 20px 10px;
     font-size: max(10px, myrem(25));
     text-decoration: none;
-    @include mq('md') {
+    @include mq("md") {
         font-size: max(20px, myrem(20));
     }
     &::before {
@@ -211,5 +218,3 @@
         }
     }
 }
-
-

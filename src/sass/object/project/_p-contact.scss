@@ -21,8 +21,8 @@
 }
 
 .p-contact__text p {
-    font-size: max(10px, myrem(18));
     font-weight: 500;
+    font-size: max(10px, myrem(18));
     line-height: 1.7;
     text-align: center;
     @include mq("md") {
@@ -42,17 +42,19 @@
     box-shadow: 0 5px 0 #9c9494;
     background-color: rgba(223, 212, 212, .5);
     text-decoration: none;
-}
-
-.p-contact__button:hover {
-    transform: translateY(4px);
-    box-shadow: none;
-    background-color: #dfd4d4;
+    cursor: pointer;
+    @include mq("md") {
+        &:hover, &:focus {
+            transform: translateY(4px);
+            box-shadow: none;
+            background-color: #dfd4d4;
+        }
+    }
 }
 
 .p-contact__button a {
-    font-size: max(10px, myrem(16));
     font-weight: 600;
+    font-size: max(10px, myrem(16));
     @include mq("md") {
         font-size: max(20px, myrem(30));
     }
