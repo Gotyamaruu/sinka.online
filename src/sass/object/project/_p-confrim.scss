@@ -1,39 +1,144 @@
 @use "global" as *;
 
-.p-confrim__main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
 .p-confrim__main .p-confrim__title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: myrem(40);
-  font-size: max(10px, myrem(30));
-  @include mq("md") {
-      margin-top: 0;
-  }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: myrem(40);
+    font-size: max(10px, myrem(30));
+    @include mq("md") {
+        margin-top: 0;
+    }
 }
 
 .p-confrim__wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: myrem(80);
 }
 
+.p-confrim__content {
+    width: 100%;
+    max-width: 80%;
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: $white;
+    @include mq("md") {
+        max-width: 70%;
+        padding: 30px 40px;
+    }
+}
+
+.p-confrim__group {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 128px auto;
+    row-gap: 10px;
+    align-items: center;
+    margin-bottom: myrem(30);
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    @include mq("md") {
+        grid-template-columns: minmax(96px, 130px) minmax(42px, 60px) 1fr;
+        row-gap: 0;
+        padding-bottom: 30px;
+    }
+}
 
 .p-confrim__label {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 10px;
+    grid-row: 1;
+    grid-column: 1;
+    font-weight: 600;
+    font-size: max(10px, myrem(16));
+    text-align: left;
+    @include mq("md") {
+        grid-row: auto;
+        grid-column: auto;
+    }
 }
 
-.p-confrim__main .wpcf7-form-control {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.p-confrim__required {
+    display: inline-block;
+    grid-row: 1;
+    grid-column: 2;
+    width: 38px;
+    margin-left: 10px;
+    padding: 0 4px;
+    padding: 0 5px;
+    background-color: black;
+    color: white;
+    font-weight: 600;
+    font-size: max(10px, myrem(14));
+    text-align: center;
+    @include mq("md") {
+        grid-row: auto;
+        grid-column: auto;
+        width: auto;
+        margin: 0 auto;
+    }
+}
+
+.p-confrim__text {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    text-align: left;
+    @include mq("md") {
+        grid-row: auto;
+        grid-column: auto;
+        margin-left: 20px;
+    }
+}
+
+.p-confrim__text .wpcf7-form-control {
+    padding: 5px;
+    border: none;
+    background-color: #f3f3f3;
+}
+
+.p-confrim__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-direction: column;
+    @include mq('md') {
+      flex-direction: row;
+      gap: 30px;
+    }
+}
+
+.wpcf7-previous, .wpcf7-submit {
+    border: 2px solid #333333;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 #c3bdbd;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: max(14px, myrem(16));
+    padding: 5px myrem(50);
+    background-color: $white;
+    @include mq("md") {
+      padding: 5px myrem(80);
+      font-size: max(18px, myrem(24));
+        &:hover, &:focus {
+            transform: translateY(4px);
+            box-shadow: none;
+        }
+    }
+}
+input[type="submit"] {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+span.wpcf7-spinner {
+    display: none;
+}
+
+.wpcf7-previous {
+    display: inline-block !important;
 }
