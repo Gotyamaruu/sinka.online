@@ -99,30 +99,30 @@
 
 .p-confrim__btn {
     display: flex;
-    justify-content: center;
-    align-items: center;
     gap: 20px;
     flex-direction: column;
-    @include mq('md') {
-      flex-direction: row;
-      gap: 30px;
+    justify-content: center;
+    align-items: center;
+    @include mq("md") {
+        gap: 30px;
+        flex-direction: row;
     }
 }
 
 .wpcf7-previous, .wpcf7-submit {
+    padding: 5px myrem(50);
     border: 2px solid #333333;
     border-radius: 10px;
     box-shadow: 0 5px 0 #c3bdbd;
+    background-color: $white;
+    font-weight: 600;
+    font-size: max(10px, myrem(18));
     text-decoration: none;
     text-align: center;
     cursor: pointer;
-    font-weight: 600;
-    font-size: max(14px, myrem(16));
-    padding: 5px myrem(50);
-    background-color: $white;
     @include mq("md") {
-      padding: 5px myrem(80);
-      font-size: max(18px, myrem(24));
+        padding: 5px myrem(80);
+        font-size: max(18px, myrem(24));
         &:hover, &:focus {
             transform: translateY(4px);
             box-shadow: none;

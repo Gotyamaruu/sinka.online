@@ -3,7 +3,9 @@
 <section class="p-policy js-visible">
   <div class="l-inner">
     <main class="p-policy__main" role="main">
-      <h1 class="c-section-title p-policy__title" itemscope itemtype="https://schema.org/PrivacyPolicy">praivacy policy</h1>
+      <div itemscope itemtype="https://schema.org/PrivacyPolicy">
+        <h1 class="c-section-title p-policy__title">praivacy policy</h1>
+      </div>
       <div class="p-policy__wrapper">
         <div class="p-policy__content">
           <h2 class="p-policy__subtitle">sinkaのプライバシーポリシーに関する基本方針</h2>

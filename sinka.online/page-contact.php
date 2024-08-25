@@ -3,7 +3,9 @@
 <section class="p-contact-form js-visible">
   <div class="l-inner">
     <main class="p-contact-form__main" role="main">
-      <h1 class="c-section-title p-contact-form__title" itemscope itemtype="https://schema.org/ContactPage">contact form</h1>
+      <div itemscope itemtype="https://schema.org/ContactPage">
+        <h1 class="c-section-title p-contact-form__title">contact form</h1>
+      </div>
       <div class="p-contact-form__wrapper">
         <div class="p-contact-form__content">
           <?php

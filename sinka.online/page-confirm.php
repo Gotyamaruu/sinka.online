@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
-<div class="p-confrim">
+<section class="p-confrim js-visible">
   <div class="l-inner">
     <main class="p-confrim__main" role="main">
-      <h1 class="c-section-title p-confrim__title" itemscope itemtype="https://schema.org/ContactPage">入力内容の確認</h1>
+      <div itemscope itemtype="https://schema.org/ContactPage">
+        <h1 class="c-section-title p-confrim__title">入力内容の確認</h1>
+      </div>
       <div class="p-confrim__wrapper">
         <div class="p-confrim__content">
           <?php
@@ -13,6 +15,6 @@
       </div>
     </main>
   </div>
-</div>
+</section>
 
 <?php get_footer(); ?>
