@@ -18,7 +18,7 @@ if (have_posts()) : while (have_posts()) : the_post();
                 if ($image_id) {
                   $image_url = wp_get_attachment_image_url($image_id, 'full');
                   $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
-                  echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="450" height="300" loading="lazy">';
+                  echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="450" height="300">';
                 } else {
                   echo '<img src="' . get_template_directory_uri() . '/assets/images/default.jpg" alt="デフォルト画像">';
                 }
@@ -84,7 +84,7 @@ if (have_posts()) : while (have_posts()) : the_post();
           </div>
         </section>
       </article>
-      <section class="p-work-other js-visible" itemscope itemtype="https://schema.org/CollectionPage">
+      <section class="p-work-other js-visible">
         <div class="l-inner">
           <h2 class="p-work-other__title c-section-title">other works</h2>
           <div class="p-work-other__splide">
@@ -98,23 +98,23 @@ if (have_posts()) : while (have_posts()) : the_post();
                   );
                   $work_posts = new WP_Query($args);
                   if ($work_posts->have_posts()) : while ($work_posts->have_posts()) : $work_posts->the_post();
-                    $image_id = get_field('splide-img');
-                    $site_link = get_field('splide-url');
-                    if ($image_id && $image_url = wp_get_attachment_image_url($image_id, 'full')) {
-                      $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                      $image_id = get_field('splide-img');
+                      $site_link = get_field('splide-url');
+                      if ($image_id && $image_url = wp_get_attachment_image_url($image_id, 'full')) {
+                        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
                   ?>
-                  <li class="splide__slide c-slide" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                    <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="260" height="140" loading="lazy">'; ?>
-                    <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text" itemprop="url">詳細を見る</a>
-                    <?php if ($site_link) : ?>
-                      <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank" itemprop="url">サイトを見る</a>
-                    <?php endif; ?>
-                  </li>
+                        <li class="splide__slide c-slide">
+                          <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="260" height="140" loading="lazy">'; ?>
+                          <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text" itemprop="url">詳細を見る</a>
+                          <?php if ($site_link) : ?>
+                            <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank" itemprop="url">サイトを見る</a>
+                          <?php endif; ?>
+                        </li>
                   <?php
-                    }
+                      }
                     endwhile;
-                    endif;
-                    wp_reset_postdata();
+                  endif;
+                  wp_reset_postdata();
                   ?>
                 </ul>
               </div>
@@ -125,20 +125,20 @@ if (have_posts()) : while (have_posts()) : the_post();
                   <?php
                   $work_posts->rewind_posts();
                   if ($work_posts->have_posts()) : while ($work_posts->have_posts()) : $work_posts->the_post();
-                    $image_id = get_field('splide-img');
-                    if ($image_id && $image_url = wp_get_attachment_image_url($image_id, 'full')) {
-                      $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
+                      $image_id = get_field('splide-img');
+                      if ($image_id && $image_url = wp_get_attachment_image_url($image_id, 'full')) {
+                        $image_alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
                   ?>
-                  <li class="splide__slide c-slide-thumbnail">
-                    <?php if ($image_id) : ?>
-                      <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="110" height="55" loading="lazy">'; ?>
-                    <?php endif; ?>
-                  </li>
+                        <li class="splide__slide c-slide-thumbnail">
+                          <?php if ($image_id) : ?>
+                            <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="110" height="55" loading="lazy">'; ?>
+                          <?php endif; ?>
+                        </li>
                   <?php
-                    }
+                      }
                     endwhile;
-                    endif;
-                    wp_reset_postdata();
+                  endif;
+                  wp_reset_postdata();
                   ?>
                 </ul>
               </div>

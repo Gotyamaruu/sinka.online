@@ -1,10 +1,9 @@
 <?php get_header(); ?>
-
-<section class="p-policy js-visible">
-  <div class="l-inner">
-    <main class="p-policy__main" role="main">
-      <div itemscope itemtype="https://schema.org/PrivacyPolicy">
-        <h1 class="c-section-title p-policy__title">praivacy policy</h1>
+<main>
+  <section class="p-policy js-visible">
+    <div class="l-inner">
+      <div class="p-policy__title">
+        <h1 class="c-section-title">praivacy policy</h1>
       </div>
       <div class="p-policy__wrapper">
         <div class="p-policy__content">
@@ -59,8 +58,8 @@
           </div>
         </div>
       </div>
-    </main>
-  </div>
-</section>
+    </div>
+  </section>
+</main>
 
 <?php get_footer(); ?>

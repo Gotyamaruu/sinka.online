@@ -86,8 +86,8 @@ function breadcrumb()
 {
 ?>
   <div class="c-breadcrumb__content">
-    <ol class="c-breadcrumb__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-      <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+    <ol class="c-breadcrumb__list">
+      <li class="c-breadcrumb__item">
         <a itemprop="item" href="<?php echo esc_url(home_url()); ?>">
           <span itemprop="name">HOME</span>
         </a>
@@ -95,31 +95,31 @@ function breadcrumb()
       </li>
 
       <?php if (is_page()) : ?>
-        <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="c-breadcrumb__item">
           <span itemprop="name"><?php echo get_the_title(); ?></span>
           <meta itemprop="position" content="2">
         </li>
 
       <?php elseif (is_post_type_archive()) : ?>
-        <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="c-breadcrumb__item">
           <span itemprop="name"><?php post_type_archive_title(); ?></span>
           <meta itemprop="position" content="2">
         </li>
 
       <?php elseif (is_singular('work')) : ?>
-        <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="c-breadcrumb__item">
           <a itemprop="item" href="<?php echo get_post_type_archive_link('work'); ?>">
             <span itemprop="name">一覧ページ</span>
           </a>
           <meta itemprop="position" content="2">
         </li>
-        <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="c-breadcrumb__item">
           <span itemprop="name"><?php echo get_the_title(); ?></span>
           <meta itemprop="position" content="3">
         </li>
 
       <?php elseif (is_404()) : ?>
-        <li class="c-breadcrumb__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <li class="c-breadcrumb__item">
           <span itemprop="name">404</span>
           <meta itemprop="position" content="2">
         </li>

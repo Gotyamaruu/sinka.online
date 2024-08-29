@@ -2,7 +2,7 @@
   <div class="p-footer__contant">
     <div class="p-footer__logo">
       <a href="<?php echo home_url(); ?>">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sinka-logo.png" alt="sinkaのロゴです" width="1779" height="491">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/sinka-logo.png" alt="sinkaのロゴです" width="1779" height="491" loading="lazy">
       </a>
     </div>
     <nav class="p-footer__global-nav js-drawer">
@@ -18,4 +18,5 @@
 </footer>
 <?php wp_footer(); ?>
 </body>
+
 </html>

@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.p-policy__title {
+.p-policy__title h1 {
   margin-top: myrem(30);
   @include mq('md') {
     margin-top: myrem(60);

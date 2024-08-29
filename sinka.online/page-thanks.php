@@ -1,10 +1,9 @@
 <?php get_header(); ?>
-
-<section class="p-thanks js-visible">
-  <div class="l-inner">
-    <main class="p-thanks__main" role="main">
-      <div itemscope itemtype="https://schema.org/ItemPage">
-        <h1 class="c-section-title p-thanks__title">送信完了</h1>
+<main>
+  <section class="p-thanks js-visible">
+    <div class="l-inner">
+      <div class="p-thanks__title" >
+        <h1 class="c-section-title">送信完了</h1>
       </div>
       <div class="p-thanks__wrapper">
         <div class="p-thanks__content">
@@ -13,8 +12,8 @@
           <p>内容を確認させていただき、原則として3営業日以内にご返信いたします。どうぞよろしくお願いいたします。</p>
         </div>
       </div>
-    </main>
-  </div>
-</section>
+    </div>
+  </section>
+</main>
 
 <?php get_footer(); ?>
