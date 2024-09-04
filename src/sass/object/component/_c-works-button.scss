@@ -3,27 +3,34 @@
 .c-works-button {
   display: flex;
   justify-content: center;
-  min-width: 228px;
+  width: 80%;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #9c9494;
+  background-color: rgba(223, 212, 212, .5);
+  text-decoration: none;
+  cursor: pointer;
+  @include mq("md") {
+    width: 40%;
+      &:hover, &:focus {
+          transform: translateY(4px);
+          box-shadow: none;
+          background-color: #dfd4d4;
+      }
+  }
 }
 
 .c-works-button a {
-  display: inline-block;
   background-color: none;
   color: #000;
-  border: 2px solid #000;
-  border-radius: myrem(20);
-  padding: myrem(25) myrem(80);
+  padding: 12px 16px;
+  width: 100%;
+  text-align: center;
   font-size: myrem(16);
   text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s;
   @include mq('md') {
-    &:hover {
-      background-color: #f0f0f0;
-    }
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-    }
+    font-size: max(10px, myrem(20));
   }
 }

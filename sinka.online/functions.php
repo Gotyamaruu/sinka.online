@@ -38,7 +38,7 @@ function my_script_init()
 {
   // jQueryの読み込み
   wp_enqueue_style('my', get_template_directory_uri() . '/assets/css/styles.css', array(), '1.0.1', 'all');
-  wp_enqueue_script('my', get_template_directory_uri() . '/assets/js/script.js', array(), '1.0.1', true);
+  wp_enqueue_script('my', get_template_directory_uri() . '/assets/js/bundle.js', array(), '1.0.1', true);
 }
 add_action('wp_enqueue_scripts', 'my_script_init');
 
@@ -88,40 +88,40 @@ function breadcrumb()
   <div class="c-breadcrumb__content">
     <ol class="c-breadcrumb__list">
       <li class="c-breadcrumb__item">
-        <a itemprop="item" href="<?php echo esc_url(home_url()); ?>">
-          <span itemprop="name">HOME</span>
+        <a href="<?php echo esc_url(home_url()); ?>">
+          <span>HOME</span>
         </a>
-        <meta itemprop="position" content="1">
+        <meta content="1">
       </li>
 
       <?php if (is_page()) : ?>
         <li class="c-breadcrumb__item">
-          <span itemprop="name"><?php echo get_the_title(); ?></span>
-          <meta itemprop="position" content="2">
+          <span><?php echo get_the_title(); ?></span>
+          <meta content="2">
         </li>
 
       <?php elseif (is_post_type_archive()) : ?>
         <li class="c-breadcrumb__item">
-          <span itemprop="name"><?php post_type_archive_title(); ?></span>
-          <meta itemprop="position" content="2">
+          <span><?php post_type_archive_title(); ?></span>
+          <meta content="2">
         </li>
 
       <?php elseif (is_singular('work')) : ?>
         <li class="c-breadcrumb__item">
-          <a itemprop="item" href="<?php echo get_post_type_archive_link('work'); ?>">
-            <span itemprop="name">一覧ページ</span>
+          <a href="<?php echo get_post_type_archive_link('work'); ?>">
+            <span>一覧ページ</span>
           </a>
-          <meta itemprop="position" content="2">
+          <meta content="2">
         </li>
         <li class="c-breadcrumb__item">
-          <span itemprop="name"><?php echo get_the_title(); ?></span>
-          <meta itemprop="position" content="3">
+          <span><?php echo get_the_title(); ?></span>
+          <meta content="3">
         </li>
 
       <?php elseif (is_404()) : ?>
         <li class="c-breadcrumb__item">
-          <span itemprop="name">404</span>
-          <meta itemprop="position" content="2">
+          <span>404</span>
+          <meta content="2">
         </li>
 
       <?php endif; ?>
@@ -179,8 +179,22 @@ function create_custom_taxonomy()
 add_action('init', 'create_custom_taxonomy');
 
 add_filter('wpcf7_autop_or_not', 'wpcf7_autop_return_false');
-function wpcf7_autop_return_false() {
+function wpcf7_autop_return_false()
+{
   return false;
 }
+
+function enqueue_jquery()
+{
+  wp_enqueue_script('jquery');
+}
+add_action('wp_enqueue_scripts', 'enqueue_jquery');
+
+function enqueue_admin_jquery()
+{
+  wp_enqueue_script('jquery');
+}
+add_action('admin_enqueue_scripts', 'enqueue_admin_jquery');
+
 
 ?>

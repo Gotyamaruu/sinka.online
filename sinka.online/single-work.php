@@ -105,9 +105,9 @@ if (have_posts()) : while (have_posts()) : the_post();
                   ?>
                         <li class="splide__slide c-slide">
                           <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="260" height="140" loading="lazy">'; ?>
-                          <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text" itemprop="url">詳細を見る</a>
+                          <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text">詳細を見る</a>
                           <?php if ($site_link) : ?>
-                            <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank" itemprop="url">サイトを見る</a>
+                            <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank">サイトを見る</a>
                           <?php endif; ?>
                         </li>
                   <?php

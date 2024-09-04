@@ -6,6 +6,10 @@
     aspect-ratio: 260/140;
 }
 
+_::-webkit-full-page-media, _:future, .c-slide {
+	height: 100%;
+}
+
 .c-slide::after {
     opacity: 1;
     position: absolute;

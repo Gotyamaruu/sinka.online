@@ -33,3 +33,8 @@
   font-size: max(14px, myrem(16));
   line-height: 1.7;
 }
+
+.p-policy__textarea a {
+  color: rgb(122, 122, 157);
+  text-decoration: underline;
+}

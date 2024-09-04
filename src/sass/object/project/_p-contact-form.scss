@@ -1,6 +1,12 @@
 @use "global" as *;
 
-.p-contact-form__main .p-contact-form__title h1 {
+@media (max-width: 445px) {
+    .p-contact-form .l-inner {
+        padding: 0;
+    }
+}
+
+.p-contact-form .p-contact-form__title h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,6 +16,7 @@
         margin-top: 0;
     }
 }
+
 .p-contact-form__wrapper {
     display: flex;
     flex-direction: column;
@@ -17,6 +24,7 @@
     align-items: center;
     margin-top: myrem(80);
 }
+
 .p-contact-form__content {
     width: 100%;
     max-width: 80%;
@@ -26,6 +34,9 @@
     @include mq("md") {
         max-width: 70%;
         padding: 30px 40px;
+    }
+    @media (max-width: 445px) {
+        max-width: 100%;
     }
 }
 
@@ -139,39 +150,21 @@
     text-decoration: underline;
     @include mq("md") {
         &:hover {
-            text-decoration: none; /* ホバー時に下線を消す */
+            text-decoration: none;
         }
     }
 }
 
-
 .p-contact-form__submit-btn {
-    margin-bottom: myrem(30);
-    border: 2px solid #333333;
-    border-radius: 10px;
-    box-shadow: 0 5px 0 #c3bdbd;
-    text-decoration: none;
-    text-align: center;
-    cursor: pointer;
-    @include mq("md") {
-        &:hover, &:focus {
-            transform: translateY(4px);
-            box-shadow: none;
-        }
-    }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .p-contant-form__submit {
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    background-color: transparent;
     color: #333333;
-    font-weight: 600;
-    font-size: max(14px, myrem(16));
-    @include mq('md') {
-        font-size: max(18px, myrem(24));
-    }
 }
 
 input[type="submit"] {
@@ -182,4 +175,9 @@ input[type="submit"] {
 
 span.wpcf7-spinner {
     display: none;
+}
+
+.wpcf7-list-item .acceptance {
+    margin-right: myrem(20);
+    transform: scale(1.5);
 }

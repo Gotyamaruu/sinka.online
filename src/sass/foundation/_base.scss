@@ -38,3 +38,14 @@ button {
     }
   }
 }
+
+body {
+  background-color: #d1c9c9;
+  opacity: 0.5;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+

@@ -7,9 +7,9 @@
     </div>
     <nav class="p-footer__global-nav js-drawer">
       <ul class="p-footer__list">
-        <li class="p-footer__item"><a href="<?php echo esc_url(home_url('/home')); ?>">Home</a></li>
-        <li class="p-footer__item"><a href="<?php echo esc_url(home_url('/about')); ?>">About</a></li>
-        <li class="p-footer__item"><a href="<?php echo esc_url(home_url('/services')); ?>">Services</a></li>
+        <li class="p-footer__item"><a href="<?php echo home_url(); ?>">Home</a></li>
+        <li class="p-footer__item"><a href="<?php echo esc_url(home_url('/#services')); ?>">Services</a></li>
+        <li class="p-footer__item"><a href="<?php echo esc_url(home_url('/#works')); ?>">Works</a></li>
         <li class="p-footer__item p-footer__item-contact"><a href="<?php echo esc_url(home_url('/contact')); ?>">Contact</a></li>
       </ul>
     </nav>

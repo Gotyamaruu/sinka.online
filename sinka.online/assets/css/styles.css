@@ -30,6 +30,17 @@ body {
   }
 }
 
+body {
+  background-color: #d1c9c9;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.5s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
 /*****************************
 * A Modern CSS Reset (https://github.com/hankchizljaw/modern-css-reset)
 * 上記に、ul要素,ol要素,a要素への記述追加
@@ -182,6 +193,23 @@ button {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+}
+
+#cookie-notice .cookie-notice-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.c-cookie-notice {
+  padding: 2px 4px;
+  border: 1px solid #000000;
+  border-radius: 2px;
 }
 
 .c-page-title {
@@ -374,6 +402,10 @@ button {
   aspect-ratio: 260/140;
 }
 
+_::-webkit-full-page-media, _:future, .c-slide {
+  height: 100%;
+}
+
 .c-slide::after {
   opacity: 1;
   position: absolute;
@@ -467,16 +499,34 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  min-width: 228px;
+  width: 80%;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 0 #9c9494;
+          box-shadow: 0 5px 0 #9c9494;
+  background-color: rgba(223, 212, 212, .5);
+  text-decoration: none;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .c-works-button {
+    width: 40%;
+  }
+  .c-works-button:hover, .c-works-button:focus {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #dfd4d4;
+  }
 }
 
 .c-works-button a {
-  display: inline-block;
   background-color: none;
   color: #000;
-  border: 2px solid #000;
-  border-radius: 1.25rem;
-  padding: 1.5625rem 5rem;
+  padding: 12px 16px;
+  width: 100%;
+  text-align: center;
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
@@ -484,13 +534,77 @@ button {
   transition: background-color 0.3s;
 }
 @media screen and (min-width: 768px) {
-  .c-works-button a:hover {
-    background-color: #f0f0f0;
+  .c-works-button a {
+    font-size: max(10px, 1.25rem);
   }
-  .c-works-button a:focus {
-    outline: none;
-    -webkit-box-shadow: 0 0 0 3px rgba(0, 123, 255, .25);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, .25);
+}
+
+.p-404 {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.p-404__title {
+  margin-bottom: 1.25rem;
+  color: #333333;
+  font-size: max(10px, 1.875rem);
+}
+
+.p-404__message {
+  margin-bottom: 0.625rem;
+  color: #333333;
+  font-size: max(10px, 1.125rem);
+}
+
+.p-404__description {
+  margin-bottom: 2.5rem;
+  color: #333333;
+  font-size: max(10px, 1rem);
+}
+
+.p-404__button-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.p-404__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 5rem;
+  padding: 12px 60px;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 0 #9c9494;
+          box-shadow: 0 5px 0 #9c9494;
+  background-color: rgba(223, 212, 212, .5);
+  color: #333333;
+  font-weight: 600;
+  font-size: max(10px, 1rem);
+  text-decoration: none;
+  cursor: pointer;
+}
+@media screen and (min-width: 768px) {
+  .p-404__button {
+    font-size: max(20px, 1.875rem);
+  }
+  .p-404__button:hover, .p-404__button:focus {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #dfd4d4;
   }
 }
 
@@ -512,10 +626,9 @@ button {
   gap: 16px;
   grid-template-columns: repeat(1, 1fr);
   row-gap: 40px;
-  margin-top: 20px;
   padding: 20px;
   border-radius: 10px;
-  margin: 40px auto 0 auto;
+  margin: 70px auto 0 auto;
   background-color: rgba(255, 255, 255, .7);
   max-width: 80%;
   -webkit-box-pack: center;
@@ -560,8 +673,13 @@ button {
 
 .p-archive-work__title {
   margin-top: 15px;
-  font-size: max(10px, 1.25rem);
+  font-size: max(10px, 1.125rem);
   line-height: 1.7;
+}
+@media screen and (min-width: 768px) {
+  .p-archive-work__title {
+    font-size: max(10px, 1.25rem);
+  }
 }
 
 .p-archive-work__img {
@@ -585,12 +703,13 @@ button {
 
 .p-archive-work__site {
   margin-top: 5px;
-  color: #0066cc;
+  color: #000;
+  text-decoration: underline;
   font-size: max(10px, 1rem);
   line-height: 1.7;
 }
 
-.p-confrim__main .p-confrim__title h1 {
+.p-confrim .p-confrim__title h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -604,7 +723,7 @@ button {
   font-size: max(10px, 1.875rem);
 }
 @media screen and (min-width: 768px) {
-  .p-confrim__main .p-confrim__title h1 {
+  .p-confrim .p-confrim__title h1 {
     margin-top: 0;
   }
 }
@@ -753,6 +872,7 @@ button {
   font-size: max(10px, 1.125rem);
   text-decoration: none;
   text-align: center;
+  color: #333333;
   cursor: pointer;
 }
 @media screen and (min-width: 768px) {
@@ -782,7 +902,12 @@ span.wpcf7-spinner {
   display: inline-block !important;
 }
 
-.p-contact-form__main .p-contact-form__title h1 {
+@media (max-width: 445px) {
+  .p-contact-form .l-inner {
+    padding: 0;
+  }
+}
+.p-contact-form .p-contact-form__title h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -796,7 +921,7 @@ span.wpcf7-spinner {
   font-size: max(10px, 1.875rem);
 }
 @media screen and (min-width: 768px) {
-  .p-contact-form__main .p-contact-form__title h1 {
+  .p-contact-form .p-contact-form__title h1 {
     margin-top: 0;
   }
 }
@@ -829,6 +954,11 @@ span.wpcf7-spinner {
   .p-contact-form__content {
     max-width: 70%;
     padding: 30px 40px;
+  }
+}
+@media (max-width: 445px) {
+  .p-contact-form__content {
+    max-width: 100%;
   }
 }
 
@@ -959,42 +1089,29 @@ span.wpcf7-spinner {
 }
 @media screen and (min-width: 768px) {
   .privacy-link:hover {
-    text-decoration: none; /* ホバー時に下線を消す */
+    text-decoration: none;
   }
 }
 
 .p-contact-form__submit-btn {
-  margin-bottom: 1.875rem;
-  border: 2px solid #333333;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 5px 0 #c3bdbd;
-          box-shadow: 0 5px 0 #c3bdbd;
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .p-contact-form__submit-btn:hover, .p-contact-form__submit-btn:focus {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
-    -webkit-box-shadow: none;
-            box-shadow: none;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
 }
 
 .p-contant-form__submit {
-  width: 100%;
-  padding: 12px 16px;
-  border: none;
-  background-color: transparent;
   color: #333333;
-  font-weight: 600;
-  font-size: max(14px, 1rem);
-}
-@media screen and (min-width: 768px) {
-  .p-contant-form__submit {
-    font-size: max(18px, 1.5rem);
-  }
 }
 
 input[type=submit] {
@@ -1005,6 +1122,12 @@ input[type=submit] {
 
 span.wpcf7-spinner {
   display: none;
+}
+
+.wpcf7-list-item .acceptance {
+  margin-right: 1.25rem;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 .p-contact {
@@ -1836,6 +1959,11 @@ span.wpcf7-spinner {
   line-height: 1.7;
 }
 
+.p-policy__textarea a {
+  color: rgb(122, 122, 157);
+  text-decoration: underline;
+}
+
 .p-service {
   margin-top: 5rem;
 }
@@ -1919,7 +2047,7 @@ span.wpcf7-spinner {
   }
 }
 
-.p-thanks__main .p-thanks__title h1 {
+.p-thanks .p-thanks__title h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1933,7 +2061,7 @@ span.wpcf7-spinner {
   font-size: max(10px, 1.875rem);
 }
 @media screen and (min-width: 768px) {
-  .p-thanks__main .p-thanks__title h1 {
+  .p-thanks .p-thanks__title h1 {
     margin-top: 0;
   }
 }
@@ -2011,7 +2139,7 @@ span.wpcf7-spinner {
 }
 
 .p-works__button {
-  margin-top: 3.125rem;
+  margin: 3.125rem auto 0 auto;
 }
 
 .p-wrok {

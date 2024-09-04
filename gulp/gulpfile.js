@@ -1,33 +1,36 @@
-// gulpのメソッド呼び出し
-// src：参照元指定、dest：出力先指定、watch：ファイル監視、series：直列処理、parallel：並列処理
 const { src, dest, watch, series, parallel } = require("gulp");
+const path = require("path");
+const webpack = require("webpack-stream");
+const browserSync = require("browser-sync").create();
 
 // 入出力先指定
-const srcBase = "../src";
 const themeName = "sinka.online"; // テーマフォルダ名と合わせる
-const distBase = `../${themeName}`;
+const srcBase = path.resolve(__dirname, "../src");
+const distBase = path.resolve(__dirname, `../${themeName}`); // 'sinka.online' ディレクトリの絶対パスを計算
 const srcPath = {
-  css: srcBase + "/sass/**/*.scss",
-  img: srcBase + "/images/**/*",
+  css: path.join(srcBase, "/sass/**/*.scss"), // 例：CSSのソースファイルが 'assets/sass' フォルダにある場合
+  img: path.join(srcBase, "/images/**/*"), // 例：画像ファイルが 'assets/images' フォルダにある場合
+  jsWebpack: path.join(distBase, "assets/js/main.js"), // JSファイルのソース
 };
 const distPath = {
-  css: distBase + "/assets/css/",
-  img: distBase + "/assets/images/",
-  js: distBase + "/assets/js/**/*.js",
-  php: distBase + "/**/*.php",
+  css: path.join(distBase, "assets/css/"), // CSSの出力先
+  img: path.join(distBase, "assets/images/"),
+  js: path.join(distBase, "/assets/js/**/*.js"), // JSファイルの出力先
+  jsWebpack: path.join(distBase, "assets/js/"), // JSwebpackファイルの出力先
+  php: path.join(distBase, "**/*.php"), // PHPファイル（例として全PHPファイルを監視対象に）
 };
 
 // ローカルサーバー立ち上げ
-const browserSync = require("browser-sync");
 const browserSyncOption = {
   proxy: "http://sinka.online.local", // LocalのSite hostを入れる
 };
-const browserSyncFunc = () => {
+const browserSyncFunc = (done) => {
   browserSync.init(browserSyncOption);
+  done(); // 完了を通知
 };
 const browserSyncReload = (done) => {
   browserSync.reload();
-  done();
+  done(); // 完了を通知
 };
 
 // Sassコンパイル
@@ -88,6 +91,21 @@ const cssSass = () => {
     );
 };
 
+// WebpackによるJavaScriptのバンドル
+const jsWebpack = (done) => {
+  return src('./webpack.config.js') // Webpackの設定ファイルを指定
+    .pipe(webpack(require("./webpack.config.js")))
+    .pipe(dest(path.resolve(__dirname, '../sinka.online/assets/js'))) // Webpackでバンドルされたファイルの出力先ディレクトリを指定
+    .on("end", () => {
+      console.log("jsWebpack task completed"); // デバッグ用ログ
+      done();
+    })
+    .on("error", (err) => {
+      console.error("Error in jsWebpack task:", err); // エラーログ
+      done(err);
+    });
+};
+
 // 画像圧縮
 const imagemin = require("gulp-imagemin"); // 画像圧縮
 const imageminMozjpeg = require("imagemin-mozjpeg"); // jpgの高圧縮に必要
@@ -119,29 +137,32 @@ const imgImagemin = () => {
 };
 
 // ファイルの変更を検知
-const watchFiles = () => {
+const watchFiles = (done) => {
   watch(srcPath.css, series(cssSass, browserSyncReload));
   watch(srcPath.img, series(imgImagemin, browserSyncReload));
   watch(distPath.js, series(browserSyncReload));
   watch(distPath.php, series(browserSyncReload));
+  done();
 };
 
 // clean
 const del = require("del");
 const delPath = {
-  css: distBase + "/css/style.css",
-  cssMap: distBase + "/css/style.css.map",
-  img: distBase + "/images/",
+  css: path.join(distBase, "assets/css/style.css"), // 修正：ファイルパスを構築するのに path.join を使う
+  cssMap: path.join(distBase, "assets/css/style.css.map"),
+  // img: path.join(distBase, "assets/images/*"), // 修正：フォルダ内のファイルのみ削除し、フォルダ自体は削除しない
+  imgFiles: path.join(distBase, "assets/images/**/*"), // 画像フォルダ内のすべてのファイルとサブフォルダ内のファイルを削除
 };
+
 const clean = (done) => {
   del(delPath.css, { force: true });
   del(delPath.cssMap, { force: true });
-  del(delPath.img, { force: true });
+  del(delPath.imgFiles, { force: true }); // 修正：フォルダの中身のみ削除
   done();
 };
 
 // 実行
 exports.default = series(
-  series(clean, imgImagemin, cssSass),
+  series(clean, imgImagemin, cssSass, jsWebpack),
   parallel(watchFiles, browserSyncFunc)
 );

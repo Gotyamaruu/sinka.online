@@ -1,10 +1,12 @@
 <?php get_header(); ?>
 
 <main>
-    <section class="p-archive-work">
+    <section class="p-archive-work js-visible">
         <div class="p-archive-work__inner">
             <div>
-                <h1 class="c-section-title p-archive__title">実績一覧</h1>
+                <div class="p-archive__title">
+                    <h1 class="c-section-title">実績一覧</h1>
+                </div>
                 <div class="p-archive-work__wrapper">
                     <?php
                     $args = array(
@@ -22,18 +24,18 @@
                             $site_link = get_field('splide-url');
                     ?>
                             <div class="p-archive-work__card">
-                                <meta itemprop="position" content="<?php echo $position; ?>" />
-                                <a class="p-archive-work__link" href="<?php echo esc_url($permalink); ?>" itemprop="url">
+                                <meta content="<?php echo $position; ?>" />
+                                <a class="p-archive-work__link" href="<?php echo esc_url($permalink); ?>">
                                     <?php if ($thumbnail): ?>
                                         <div class="p-archive-work__img">
-                                            <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>" itemprop="image">
+                                            <img src="<?php echo esc_url($thumbnail); ?>" alt="<?php echo esc_attr($title); ?>" width="420" height="240" >
                                         </div>
                                     <?php endif; ?>
                                 </a>
-                                <h2 class="p-archive-work__title" itemprop="name"><?php echo esc_html($title); ?></h2>
+                                <h2 class="p-archive-work__title"><?php echo esc_html($title); ?></h2>
                                 <div class="p-archive-work__site">
                                     <?php if ($site_link) : ?>
-                                        <a href="<?php echo esc_url($site_link); ?>" target="_blank" itemprop="url"><?php echo esc_url($site_link); ?></a>
+                                        <a href="<?php echo esc_url($site_link); ?>" target="_blank">サイトを見る</a>
                                     <?php endif; ?>
                                 </div>
                             </div>

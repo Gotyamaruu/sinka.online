@@ -1,6 +1,6 @@
 @use "global" as *;
 
-.p-confrim__main .p-confrim__title h1 {
+.p-confrim .p-confrim__title h1 {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,6 +119,7 @@
     font-size: max(10px, myrem(18));
     text-decoration: none;
     text-align: center;
+    color: #333333;
     cursor: pointer;
     @include mq("md") {
         padding: 5px myrem(80);

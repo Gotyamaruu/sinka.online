@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function checkScreenWidth() {
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
-
     if (!isMobile) {
       window.addEventListener("scroll", handleScroll);
     } else {
@@ -31,25 +30,61 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  function smoothScrollTo(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) return;
+    const headerHeight = document.querySelector("header").offsetHeight;
+    const targetPosition =
+      targetElement.getBoundingClientRect().top + window.scrollY - headerHeight;
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    window.scrollTo({
+      top: targetPosition,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
+    if (hamburger.getAttribute("aria-expanded") === "true") {
+      closeDrawerMenu();
+    }
+  }
+
+  function closeDrawerMenu() {
+    gsap.to(drawer, {
+      opacity: 0,
+      y: -20,
+      duration: 0.3,
+      ease: "power2.inOut",
+      onComplete: () => {
+        gsap.set(drawer, { display: "none" });
+        hamburger.setAttribute("aria-expanded", "false");
+      },
+    });
+  }
+
   document.addEventListener("click", function (e) {
     const anchor = e.target.closest('a[href*="#"]');
     if (anchor) {
-      e.preventDefault();
-      const targetId = anchor.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (!targetElement) return;
-      const headerHeight = document.querySelector("header").offsetHeight;
-      const targetPosition =
-        targetElement.getBoundingClientRect().top +
-        window.scrollY -
-        headerHeight;
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: prefersReducedMotion ? "auto" : "smooth",
-      });
+      const href = anchor.getAttribute("href");
+      const targetId = href.split("#")[1];
+      const currentUrlWithoutHash = window.location.href.split("#")[0];
+      const currentUrlObject = new URL(currentUrlWithoutHash);
+      const hrefUrlObject = new URL(href, window.location.origin);
+      if (
+        targetId &&
+        hrefUrlObject.pathname === currentUrlObject.pathname &&
+        hrefUrlObject.hostname === currentUrlObject.hostname
+      ) {
+        e.preventDefault();
+        smoothScrollTo(targetId);
+      }
+    }
+  });
+
+  window.addEventListener("load", function () {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.substring(1);
+      smoothScrollTo(targetId);
     }
   });
 
@@ -211,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
           fixedWidth: 280,
           fixedHeight: 240,
         },
-      }
+      },
     }).mount();
 
     var thumbnails = new Splide("#thumbnail", {
@@ -243,4 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }).mount();
     main.sync(thumbnails);
   }
+});
+
+window.addEventListener("load", function () {
+  document.body.classList.add("loaded");
 });

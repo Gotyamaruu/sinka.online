@@ -16,23 +16,23 @@
       <div class="p-service__content">
         <div class="p-service__content-item">
           <div class="p-service__content-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-3.webp" alt="HP/LP制作の画像です" width="250" height="150" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-3.webp" alt="HP/LP制作 お客様のビジネスに合わせたWebサイトを提供します" width="250" height="150" loading="lazy">
           </div>
-          <h3 class="p-service__content-title" itemprop="serviceType">HP&nbsp;LP制作</h3>
+          <h3 class="p-service__content-title">HP&nbsp;LP制作</h3>
           <p class="p-service__content-lead">お客様のビジネスに合わせた<br>Webサイトを提供します</p>
         </div>
         <div class="p-service__content-item">
           <div class="p-service__content-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-2.webp" alt="サービス2の画像です" width="250" height="250" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-2.webp" alt="WrodPress 既存サイトのWrodPress化 独自テーマ制作も対応" width="250" height="250" loading="lazy">
           </div>
-          <h3 class="p-service__content-title" itemprop="serviceType">WordPress</h3>
+          <h3 class="p-service__content-title">WordPress</h3>
           <p class="p-service__content-lead">既存サイトのWordPress化<br>独自テーマ制作も対応</p>
         </div>
         <div class="p-service__content-item">
           <div class="p-service__content-img">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-1.webp" alt="サービス2の画像です" width="250" height="250" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/service-1.webp" alt="保守 運用 修正 軽微な修正からページ追加 HPの管理" width="250" height="250" loading="lazy">
           </div>
-          <h3 class="p-service__content-title" itemprop="serviceType">保守&nbsp;運用&nbsp;修正</h3>
+          <h3 class="p-service__content-title">保守&nbsp;運用&nbsp;修正</h3>
           <p class="p-service__content-lead">軽微な修正からページ追加<br>HPの管理</p>
         </div>
       </div>
@@ -59,9 +59,9 @@
               ?>
                     <li class="splide__slide c-slide">
                       <?php echo '<img src="' . esc_url($image_url) . '" alt="' . esc_attr($image_alt) . '" width="260" height="140" loading="lazy">'; ?>
-                      <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text" itemprop="url">詳細を見る</a>
+                      <a href="<?php the_permalink(); ?>" class="c-slide__link-detail c-slide__text">詳細を見る</a>
                       <?php if ($site_link) : ?>
-                        <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank" itemprop="url">サイトを見る</a>
+                        <a href="<?php echo esc_url($site_link); ?>" class="c-slide__link-site c-slide__text" target="_blank">サイトを見る</a>
                       <?php endif; ?>
                     </li>
               <?php
@@ -98,9 +98,9 @@
           </div>
         </div>
       </div>
-      <!-- <div class="p-works__button c-works-button">
-      <a href="http://sinka.online.local/works/">実績一覧</a>
-    </div> -->
+      <div class="p-works__button c-works-button">
+        <a href="<?php echo home_url('/works/'); ?>">実績一覧</a>
+      </div>
     </div>
   </section>
 
@@ -113,7 +113,7 @@
         </div>
         <div class="p-contact__button">
           <div class="p-contact_icon">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="メールアイコン" width="32" height="32" loading="lazy">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="ご相談・お問い合わせはこちら" width="32" height="32" loading="lazy">
           </div>
           <a href="<?php echo home_url('/contact'); ?>">ご相談・お問い合わせはこちら</a>
         </div>
@@ -124,4 +124,3 @@
 
 <?php get_footer(); ?>
 </div>
-

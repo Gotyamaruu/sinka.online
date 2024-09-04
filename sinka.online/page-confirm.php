@@ -3,7 +3,7 @@
   <section class="p-confrim js-visible">
     <div class="l-inner">
       <div class="p-confrim__title">
-        <h1 class="c-section-title p-confrim__title">入力内容の確認</h1>
+        <h1 class="c-section-title">入力内容の確認</h1>
       </div>
       <div class="p-confrim__wrapper">
         <div class="p-confrim__content">

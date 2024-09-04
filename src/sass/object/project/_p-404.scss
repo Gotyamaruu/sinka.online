@@ -1,0 +1,55 @@
+@use "global" as *;
+
+.p-404 {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.p-404__title {
+    margin-bottom: myrem(20);
+    color: #333333;
+    font-size: max(10px, myrem(30));
+}
+
+.p-404__message {
+    margin-bottom: myrem(10);
+    color: #333333;
+    font-size: max(10px, myrem(18));
+}
+
+.p-404__description {
+    margin-bottom: myrem(40);
+    color: #333333;
+    font-size: max(10px, myrem(16));
+}
+
+.p-404__button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.p-404__button {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: myrem(80);
+    padding: 12px 60px;
+    border: 2px solid #333333;
+    border-radius: 10px;
+    box-shadow: 0 5px 0 #9c9494;
+    background-color: rgba(223, 212, 212, .5);
+    color: #333333;
+    font-weight: 600;
+    font-size: max(10px, myrem(16));
+    text-decoration: none;
+    cursor: pointer;
+    @include mq("md") {
+        font-size: max(20px, myrem(30));
+        &:hover, &:focus {
+            transform: translateY(4px);
+            box-shadow: none;
+            background-color: #dfd4d4;
+        }
+    }
+}
