@@ -98,7 +98,7 @@
           </div>
         </div>
       </div>
-      <div class="p-works__button c-works-button">
+      <div class="p-works__button c-button">
         <a href="<?php echo home_url('/works/'); ?>">実績一覧</a>
       </div>
     </div>
@@ -111,7 +111,7 @@
         <div class="p-contact__text">
           <p>制作のご依頼やその他のご相談がありましたら<br>お気軽にフォームからお問い合わせください。</p>
         </div>
-        <div class="p-contact__button">
+        <div class="p-contact__button c-button">
           <div class="p-contact_icon">
             <img src="<?php echo get_template_directory_uri(); ?>/assets/images/icon-mail.svg" alt="ご相談・お問い合わせはこちら" width="32" height="32" loading="lazy">
           </div>

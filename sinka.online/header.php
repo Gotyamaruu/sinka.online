@@ -33,10 +33,6 @@
   <!-- splide.js, particles.js, gsapのスクリプト -->
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/splide.min.js" defer></script>
   <script src="<?php echo get_template_directory_uri(); ?>/assets/js/script.js" defer></script>
-  <!-- <script src="<?php echo get_template_directory_uri(); ?>/assets/js/particles.js" defer></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/gsap.min.js" defer></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/ScrollToPlugin.min.js" defer></script>
-  <script src="<?php echo get_template_directory_uri(); ?>/assets/js/ScrollTrigger.min.js" defer></script> -->
   <!-- hcaptcha -->
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
   <?php wp_head(); ?>

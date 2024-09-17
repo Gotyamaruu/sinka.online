@@ -31,25 +31,9 @@
 }
 
 .p-contact__button {
-    display: flex;
     gap: 10px;
-    justify-content: center;
-    align-items: center;
     margin-top: myrem(80);
     padding: 12px 16px;
-    border: 2px solid #333333;
-    border-radius: 10px;
-    box-shadow: 0 5px 0 #9c9494;
-    background-color: rgba(223, 212, 212, .5);
-    text-decoration: none;
-    cursor: pointer;
-    @include mq("md") {
-        &:hover, &:focus {
-            transform: translateY(4px);
-            box-shadow: none;
-            background-color: #dfd4d4;
-        }
-    }
 }
 
 .p-contact__button a {

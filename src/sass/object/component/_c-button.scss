@@ -1,11 +1,20 @@
 @use "global" as *;
 
 .c-button {
-  display: inline-block;
-  position: relative;
-  border: none;
-  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  box-shadow: 0 5px 0 #9c9494;
+  background-color: rgba(223, 212, 212, .5);
   text-decoration: none;
   cursor: pointer;
-  appearance: none;
+  @include mq("md") {
+      &:hover, &:focus {
+          transform: translateY(4px);
+          box-shadow: none;
+          background-color: #dfd4d4;
+      }
+  }
 }

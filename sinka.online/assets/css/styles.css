@@ -184,15 +184,31 @@ button {
 }
 
 .c-button {
-  display: inline-block;
-  position: relative;
-  border: none;
-  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 2px solid #333333;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 5px 0 #9c9494;
+          box-shadow: 0 5px 0 #9c9494;
+  background-color: rgba(223, 212, 212, .5);
   text-decoration: none;
   cursor: pointer;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+}
+@media screen and (min-width: 768px) {
+  .c-button:hover, .c-button:focus {
+    -webkit-transform: translateY(4px);
+            transform: translateY(4px);
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    background-color: #dfd4d4;
+  }
 }
 
 #cookie-notice .cookie-notice-container {
@@ -490,53 +506,6 @@ _::-webkit-full-page-media, _:future, .c-slide {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.c-works-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 80%;
-  border: 2px solid #333333;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 5px 0 #9c9494;
-          box-shadow: 0 5px 0 #9c9494;
-  background-color: rgba(223, 212, 212, .5);
-  text-decoration: none;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .c-works-button {
-    width: 40%;
-  }
-  .c-works-button:hover, .c-works-button:focus {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    background-color: #dfd4d4;
-  }
-}
-
-.c-works-button a {
-  background-color: none;
-  color: #000;
-  padding: 12px 16px;
-  width: 100%;
-  text-align: center;
-  font-size: 1rem;
-  text-decoration: none;
-  cursor: pointer;
-  -webkit-transition: background-color 0.3s;
-  transition: background-color 0.3s;
-}
-@media screen and (min-width: 768px) {
-  .c-works-button a {
-    font-size: max(10px, 1.25rem);
-  }
 }
 
 .p-404 {
@@ -1174,34 +1143,9 @@ span.wpcf7-spinner {
 }
 
 .p-contact__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   gap: 10px;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin-top: 5rem;
   padding: 12px 16px;
-  border: 2px solid #333333;
-  border-radius: 10px;
-  -webkit-box-shadow: 0 5px 0 #9c9494;
-          box-shadow: 0 5px 0 #9c9494;
-  background-color: rgba(223, 212, 212, .5);
-  text-decoration: none;
-  cursor: pointer;
-}
-@media screen and (min-width: 768px) {
-  .p-contact__button:hover, .p-contact__button:focus {
-    -webkit-transform: translateY(4px);
-            transform: translateY(4px);
-    -webkit-box-shadow: none;
-            box-shadow: none;
-    background-color: #dfd4d4;
-  }
 }
 
 .p-contact__button a {
@@ -1515,16 +1459,24 @@ span.wpcf7-spinner {
 }
 
 .p-header__hamburger {
+  display: inline-block;
   position: absolute;
   top: 25%;
   right: 5%;
   width: 48px;
   height: 48px;
+  border: none;
   -webkit-box-shadow: 0 0 2rem transparent;
           box-shadow: 0 0 2rem transparent;
+  background-color: transparent;
+  text-decoration: none;
   outline: none;
+  cursor: pointer;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 @media screen and (min-width: 768px) {
   .p-header__hamburger {
@@ -2140,6 +2092,30 @@ span.wpcf7-spinner {
 
 .p-works__button {
   margin: 3.125rem auto 0 auto;
+  width: 80%;
+}
+@media screen and (min-width: 768px) {
+  .p-works__button {
+    width: 40%;
+  }
+}
+
+.p-works__button a {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: transparent;
+  color: #000000;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+@media screen and (min-width: 768px) {
+  .p-works__button a {
+    font-size: max(10px, 1.25rem);
+  }
 }
 
 .p-wrok {
